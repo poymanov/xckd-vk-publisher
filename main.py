@@ -20,4 +20,4 @@ if __name__ == '__main__':
     published_post_id = vk_service.publish_to_wall(saved_wall_photo, comics_comment, vk_credentials)
     comics_service.delete_temp_dir()
 
-    print('Comics published. Id - {}'.format(published_post_id))
+    print('Comics published. Id - {}.'.format(published_post_id))
