@@ -1,4 +1,3 @@
-import copy
 import os
 import random
 import shutil
@@ -12,22 +11,19 @@ TMP_IMAGE_PATH = 'tmp'
 
 
 def fetch_comics_data(number):
-    url = copy.copy(COMICS_DATA_URL)
-
     if number is not None:
-        url = url.format(number)
+        url = COMICS_DATA_URL.format(number)
     else:
-        url = url.format('')
+        url = COMICS_DATA_URL.format('')
 
-    return requests.get(url).json()
+    response = requests.get(url)
+    response.raise_for_status()
+
+    return response.json()
 
 
 def get_comics_quantity():
     return fetch_comics_data(None)['num']
-
-
-def get_random_comics_number(last_comics_number):
-    return random.randint(FIRST_COMICS_NUMBER, last_comics_number)
 
 
 def save_image(url):
@@ -47,8 +43,7 @@ def get_file_extension(path):
 
 
 def get_comics_image_data():
-    comics_quantity = get_comics_quantity()
-    comics_number = get_random_comics_number(comics_quantity)
+    comics_number = random.randint(FIRST_COMICS_NUMBER, get_comics_quantity())
     comics_data = fetch_comics_data(comics_number)
 
     saved_image_path = save_image(comics_data['img'])

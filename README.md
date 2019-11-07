@@ -46,6 +46,7 @@ https://oauth.vk.com/authorize?client_id={id}&response_type=token&scope=photos,g
 ```
 VK_ACCESS_TOKEN=
 ```
+Этот токен действует 1 день. Через 24 часа необходимо повторить процедуру его получения.
 
 ---
 
