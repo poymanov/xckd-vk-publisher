@@ -2,14 +2,11 @@
 
 Приложение скачивает случайный комикс от [xckd](https://xkcd.com/) и публикует в указанной группе ВК. 
 
+[![asciicast](https://asciinema.org/a/UAa5OCo7mppvjjYYoZKGa675C.svg)](https://asciinema.org/a/UAa5OCo7mppvjjYYoZKGa675C)
+
 ### Установка
 
-Для работы приложения требуется **Python 3**.
-
-Установить зависимости приложения:
-```
-pip install -r requirements.txt
-```
+Для работы приложения требуется **Docker** и **Docker Compose**.
 
 ### Настройка
 
@@ -55,18 +52,20 @@ VK_ACCESS_TOKEN=
 VK_API_VERSION=
 ```
 
-
-
-
 ### Запуск
 
 ```
-python main.py
+make run
 ```
 
 После успешной публикации комикса приложение выведет сообщение:
 ```
 Comics published. Id - 15.
+```
+
+Удаление всех временных файлов приложения:
+```
+make flush
 ```
 
 ### Цель проекта

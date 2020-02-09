@@ -1,13 +1,9 @@
 import os
 
-from dotenv import load_dotenv
-
 import comics_service
 import vk_service
 
 if __name__ == '__main__':
-    load_dotenv()
-
     comics_data = comics_service.get_comics_image_data()
     comics_comment = comics_data['comment']
 
